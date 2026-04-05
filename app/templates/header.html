@@ -1,18 +1,35 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">My App</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
       <span class="navbar-toggler-icon"></span>
     </button>
-  
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
+      <ul class="navbar-nav w-100 align-items-lg-center">
         <li class="nav-item">
-          <a class="nav-link active" href="{{ url_for('home') }}">Home</a>
+          <a class="nav-link" href="{{ url_for('home') }}">PropTop Ja</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('about') }}">About</a>
+        <li class="nav-item ms-lg-3">
+          <a class="nav-link" href="{{ url_for('properties') }}">Buy</a>
         </li>
+        <li class="nav-item ms-lg-3">
+          <a class="nav-link" href="{{ url_for('create_property') }}">Sell</a>
+        </li>
+        <li class="nav-item ms-lg-3">
+          <a class="nav-link" href="{{ url_for('manage_properties') }}">Manage Properties</a>
+        </li>
+        {% if current_user.is_authenticated %}
+        <li class="nav-item ms-lg-auto">
+          <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+        </li>
+        {% else %}
+        <li class="nav-item ms-lg-auto">
+          <a class="nav-link" href="{{ url_for('signup') }}">Sign Up</a>
+        </li>
+        <li class="nav-item ms-lg-3">
+          <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+        </li>
+        {% endif %}
       </ul>
     </div>
   </div>

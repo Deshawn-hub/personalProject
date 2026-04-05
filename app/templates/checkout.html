@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div class="container py-5">
+  <div class="row g-4 align-items-start">
+    <div class="col-lg-7">
+      <img
+        src="{{ property_image_url(property.photo) }}"
+        alt="{{ property.title }}"
+        class="img-fluid rounded shadow-sm w-100"
+        style="max-height: 460px; object-fit: cover;"
+      >
+    </div>
+    <div class="col-lg-5">
+      <p class="text-uppercase text-success fw-semibold mb-2">Checkout</p>
+      <h2 class="mb-3">{{ property.title }}</h2>
+      <p class="text-muted mb-2">{{ property.location }}</p>
+      <p class="fs-4 fw-bold">{{ property.price }}</p>
+      <p class="mb-4">
+        Review the property details below and click complete checkout to continue.
+      </p>
+
+      <ul class="list-group mb-4">
+        <li class="list-group-item d-flex justify-content-between">
+          <span>Property Type</span>
+          <strong>{{ property.property_type|title }}</strong>
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+          <span>Rooms</span>
+          <strong>{{ property.no_of_rooms }}</strong>
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+          <span>Bathrooms</span>
+          <strong>{{ property.no_of_bathrooms }}</strong>
+        </li>
+      </ul>
+
+      <form method="POST">
+        <button type="submit" class="btn btn-success">Complete Checkout</button>
+        <a class="btn btn-outline-success ms-2" href="{{ url_for('properties') }}">Back to Buy</a>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div class="container py-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+      <h2 class="mb-1">Manage My Properties</h2>
+    </div>
+    <a class="btn btn-success" href="{{ url_for('create_property') }}">Add New Property</a>
+  </div>
+
+  {% if properties %}
+  <div class="row g-4">
+    {% for property in properties %}
+    <div class="col-md-6 col-lg-4">
+      <div class="card h-100 shadow-sm">
+        <img
+          src="{{ property_image_url(property.photo) }}"
+          class="card-img-top"
+          alt="{{ property.title }}"
+          style="height: 220px; object-fit: cover;"
+        >
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">{{ property.title }}</h5>
+          <p class="text-muted mb-2">{{ property.location }}</p>
+          <p class="card-text">{{ property.description[:110] }}{% if property.description|length > 110 %}...{% endif %}</p>
+          <p class="fw-bold mt-auto mb-3">{{ property.price }}</p>
+          <div class="d-grid gap-2">
+            <a class="btn btn-success" href="{{ url_for('edit_property', propertyid=property.id) }}">Edit</a>
+            <a class="btn btn-outline-success" href="{{ url_for('property_detail', propertyid=property.id) }}">View Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="alert alert-info mb-0">
+    You have not created any properties in this browser session yet.
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

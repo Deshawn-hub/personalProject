@@ -1,3 +1,81 @@
+/* Layout */
+:root {
+  --navbar-offset: 88px;
+}
+
+/* Navbar */
+.navbar-custom {
+  background-color: #1a3c5e;
+  padding: 10px 20px;
+}
+
+.navbar-custom .nav-link {
+  color: white !important;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.navbar-custom .nav-link:hover {
+  color: #a8d8ea !important;
+}
+
+
+.realtor-card {
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+              url('/static/image/realtor.avif') center/cover no-repeat;
+  min-height: 500px;
+  padding: 100px 0;
+  margin-top: 0;
+}
+
+
+.realtor-card h1 {
+  font-size: 3rem;
+}
+
+.realtor-card .form-control {
+  border-radius: 30px;
+  padding: 15px 25px;
+  font-size: 1rem;
+  max-width: 600px;
+}
+
+.realtor-profile-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  height: 100%;
+}
+
+.realtor-profile-image {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+/* Testimonial */
+.testimonial-card {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+}
+
+.testimonial-card .stars {
+  color: #f4c430;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+/* General */
 body {
-    padding-top: 5rem;
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+  padding-top: var(--navbar-offset);
+}
+
+section {
+  border-bottom: 1px solid #eee;
 }

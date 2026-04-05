@@ -3,11 +3,99 @@
 {% block css %}{% endblock %}
 
 {% block main %}
-<div class="p-5 mb-4 bg-light rounded-3 border">
-  <div class="container-fluid py-5">
-    <h1 class="display-5 fw-bold">Hello, world!</h1>
-    <p>This is a simple starter template for a Flask Application</p>
+<div>
+
+  <!-- main card -->
+  <div class="realtor-card d-flex align-items-center">
+    <div class="container">
+      <h1 class="fw-bold text-white">Forever starts here</h1>
+      <p class="fs-4 text-white">
+        Find your dream home with us.
+      </p>
+      <form action="{{ url_for('properties') }}" method="GET" class="mt-3">
+        <input
+          type="text"
+          name="q"
+          class="form-control form-control-lg"
+          placeholder="Search for properties..."
+        >
+      </form>
+    </div>
   </div>
+
+  <!-- a Realtor -->
+  <section class="container my-5 py-4 text-center">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <h2 class="fw-bold mb-3">Find A Realtor</h2>
+        <p class="fs-5 text-muted mb-4">
+          Connect with trusted real estate agents to guide you through your property journey.
+          Whether you're buying, selling, or renting, our network of experienced realtors is here
+          to help you every step of the way.
+        </p>
+        <h3 class="mb-3">Our Trusted Realtors</h3>
+        <div class="row g-4 mt-2 justify-content-center">
+          <div class="col-md-4">
+            <div class="realtor-profile-card">
+              <img src="{{ url_for('static', filename='image/john.jpeg') }}" alt="John Realtor" class="img-fluid realtor-profile-image">
+              <h4 class="mt-3 mb-1">John Doe</h4>
+              <p class="text-muted mb-0">Residential Sales Specialist</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="realtor-profile-card">
+              <img src="{{ url_for('static', filename='image/peter.jpeg') }}" alt="Peter Realtor" class="img-fluid realtor-profile-image">
+              <h4 class="mt-3 mb-1">Peter Brown</h4>
+              <p class="text-muted mb-0">Luxury Property Advisor</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="realtor-profile-card">
+              <img src="{{ url_for('static', filename='image/andre.webp') }}" alt="Andre Realtor" class="img-fluid realtor-profile-image">
+              <h4 class="mt-3 mb-1">Andre Holmes</h4>
+              <p class="text-muted mb-0">Rental and Investment Expert</p>
+            </div>
+          </div>
+        </div>
+        <a href="#" class="btn btn-outline-primary btn-lg px-5 mt-3">Browse Directory</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- the Comments -->
+  <section class="container my-5 py-4">
+    <h2 class="fw-bold text-center mb-5">What Our Clients Say</h2>
+    <div class="row justify-content-center g-4">
+      <div class="col-md-4">
+        <div class="testimonial-card">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>
+            "This platform made buying and renting feel much easier. I'd definitely
+            recommend it to anyone looking for property in Jamaica."
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="testimonial-card">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>
+            "The agents were professional and responsive. I found a property that
+            matched my needs without wasting time on unsuitable listings."
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="testimonial-card">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>
+            "Listing my home here was straightforward and effective. The whole
+            process felt organized, clear, and easy to trust."
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </div>
 {% endblock %}
 
